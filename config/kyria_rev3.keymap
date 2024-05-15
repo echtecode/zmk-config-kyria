@@ -16,6 +16,50 @@
  */
 
 / {
+    behaviors {
+        td_cmd_cmdbackthick: td_cmd_cmdbackthick {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_CMD_CMDBACKTHICK";
+            #binding-cells = <0>;
+            bindings = <&kp LCMD>, <&kp LG(GRAVE)>;
+        };
+
+        td_window_left: td_window_left {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_WINDOW_LEFT";
+            #binding-cells = <0>;
+            bindings = <&kp LG(LA(LEFT_ARROW))>, <&kp LG(LC(LA(LEFT_ARROW)))>;
+        };
+
+        td_window_right: td_window_right {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_WINDOW_RIGHT";
+            #binding-cells = <0>;
+            bindings = <&kp LG(LA(RIGHT_ARROW))>, <&kp LG(LC(LA(RIGHT_ARROW)))>;
+        };
+
+        td_numbers_layer: td_numbers_layer {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_NUMBERS_LAYER";
+            #binding-cells = <0>;
+            bindings = <&mo 3>, <&to 3>;
+        };
+
+        td_navigation_layer: td_navigation_layer {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_NAVIGATION_LAYER";
+            #binding-cells = <0>;
+            bindings = <&mo 2>, <&to 2>;
+        };
+
+        td_code_layer: td_code_layer {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_CODE_LAYER";
+            #binding-cells = <0>;
+            bindings = <&mo 1>, <&to 1>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -27,10 +71,10 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&kp ESC    &kp Q  &kp W  &kp E  &kp R           &kp T                                                               &kp Y      &kp U                   &kp I      &kp O    &kp P          &kp DELETE
-&kp TAB    &kp A  &kp S  &kp D  &kp F           &kp G                                                               &kp H      &kp J                   &kp K      &kp L    &kp BACKSPACE  &kp LA(NUMBER_1)
-&kp LSHFT  &kp Z  &kp X  &kp C  &kp V           &kp B      &mo 2  &trans             &trans             &kp LC(A)   &kp N      &kp M                   &kp COMMA  &kp DOT  &kp LCMD       &trans
-                         &mo 3  &kp LEFT_SHIFT  &kp LCTRL  &mo 1  &kp LC(LA(LS(C)))  &kp LC(LA(LS(K)))  &kp RETURN  &kp SPACE  &kp LA(LC(LEFT_SHIFT))  &trans
+&kp ESC    &kp Q  &kp W  &kp E              &kp R      &kp T                                                                                   &kp Y      &kp U                   &kp I      &kp O    &kp P                 &kp DELETE
+&kp TAB    &kp A  &kp S  &kp D              &kp F      &kp G                                                                                   &kp H      &kp J                   &kp K      &kp L    &kp BACKSPACE         &kp LA(NUMBER_1)
+&kp LSHFT  &kp Z  &kp X  &kp C              &kp V      &kp B           &td_navigation_layer  &trans             &trans             &kp LC(A)   &kp N      &kp M                   &kp COMMA  &kp DOT  &td_cmd_cmdbackthick  &trans
+                         &td_numbers_layer  &kp LCTRL  &td_code_layer  &kp LEFT_SHIFT        &kp LC(LA(LS(C)))  &kp LC(LA(LS(K)))  &kp RETURN  &kp SPACE  &kp LA(LC(LEFT_SHIFT))  &trans
             >;
         };
 
@@ -42,19 +86,19 @@
             //                       |      |      |      |      |      |      |      |      |      |      |      |      |
 
             bindings = <
-&kp EXCLAMATION  &kp AT_SIGN  &kp HASH       &kp DOLLAR            &kp PERCENT        &kp CARET                                                &kp AMPERSAND      &kp MINUS        &kp UNDERSCORE         &kp ASTERISK      &kp PLUS       &trans
-&trans           &kp SLASH    &kp LESS_THAN  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE     &kp LEFT_BRACKET                                         &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp GREATER_THAN  &kp BACKSLASH  &trans
-&trans           &kp TILDE    &kp GRAVE      &kp SINGLE_QUOTE      &kp DOUBLE_QUOTES  &kp EQUAL         &trans  &trans  &trans     &trans      &kp COLON          &kp SEMICOLON    &trans                 &kp QUESTION      &kp PIPE       &trans
-                                             &trans                &trans             &trans            &trans  &trans  &kp LC(A)  &kp RETURN  &kp SPACE          &trans           &trans
+&kp EXCLAMATION  &kp AT_SIGN  &kp HASH       &kp DOLLAR            &kp PERCENT        &kp CARET                                             &kp AMPERSAND      &kp MINUS        &kp UNDERSCORE         &kp ASTERISK      &kp PLUS       &trans
+&trans           &kp SLASH    &kp LESS_THAN  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE     &kp LEFT_BRACKET                                      &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp GREATER_THAN  &kp BACKSLASH  &trans
+&to 0            &kp TILDE    &kp GRAVE      &kp SINGLE_QUOTE      &kp DOUBLE_QUOTES  &kp EQUAL         &trans  &trans  &trans  &kp LC(A)   &kp COLON          &kp SEMICOLON    &trans                 &kp QUESTION      &kp PIPE       &trans
+                                             &trans                &trans             &trans            &trans  &trans  &trans  &kp RETURN  &kp SPACE          &trans           &trans
             >;
         };
 
         navigation {
             bindings = <
-&trans  &trans          &trans     &trans        &trans     &trans                                         &trans          &trans          &trans        &trans           &trans  &trans
-&trans  &kp LEFT_SHIFT  &kp LCTRL  &kp LEFT_ALT  &kp LCMD   &kp LG(GRAVE)                                  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans  &trans
-&trans  &kp LG(Z)       &kp LG(X)  &kp LG(C)     &kp LG(V)  &trans         &trans  &trans  &trans  &trans  &trans          &trans          &trans        &trans           &trans  &trans
-                                   &trans        &trans     &trans         &trans  &trans  &trans  &trans  &trans          &trans          &trans
+&trans  &trans          &trans     &trans        &trans     &trans                                         &trans          &trans           &trans         &trans            &trans  &trans
+&trans  &kp LEFT_SHIFT  &kp LCTRL  &kp LEFT_ALT  &kp LCMD   &kp LG(GRAVE)                                  &kp LEFT_ARROW  &kp DOWN_ARROW   &kp UP_ARROW   &kp RIGHT_ARROW   &trans  &trans
+&to 0   &kp LG(Z)       &kp LG(X)  &kp LG(C)     &kp LG(V)  &trans         &trans  &trans  &trans  &trans  &trans          &td_window_left  &kp LG(LA(F))  &td_window_right  &trans  &trans
+                                   &trans        &trans     &trans         &trans  &trans  &trans  &trans  &trans          &trans           &trans
             >;
         };
 
@@ -62,7 +106,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                                     &trans        &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                     &trans        &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans
+&to 0   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans
                         &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(A)  &kp NUMBER_0  &kp NUMBER_0  &trans
             >;
         };
