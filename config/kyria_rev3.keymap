@@ -72,10 +72,10 @@
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&kp ESC    &kp Q  &kp W  &kp E              &kp R      &kp T                                                                                   &kp Y      &kp U                   &kp I      &kp O    &kp P                 &kp DELETE
-&kp TAB    &kp A  &kp S  &kp D              &kp F      &kp G                                                                                   &kp H      &kp J                   &kp K      &kp L    &kp BACKSPACE         &kp LA(NUMBER_1)
-&kp LSHFT  &kp Z  &kp X  &kp C              &kp V      &kp B           &td_navigation_layer  &trans             &trans             &kp LC(A)   &kp N      &kp M                   &kp COMMA  &kp DOT  &td_cmd_cmdbackthick  &trans
-                         &td_numbers_layer  &kp LCTRL  &td_code_layer  &kp LEFT_SHIFT        &kp LC(LA(LS(C)))  &kp LC(LA(LS(K)))  &kp RETURN  &kp SPACE  &kp LA(LC(LEFT_SHIFT))  &trans
+&kp ESC    &kp Q  &kp W  &kp E         &kp R      &kp T                                                                                         &kp Y      &kp U                   &kp I      &kp O    &kp P          &kp DELETE
+&kp TAB    &kp A  &kp S  &kp D         &kp F      &kp G                                                                                         &kp H      &kp J                   &kp K      &kp L    &kp BACKSPACE  &kp LA(NUMBER_1)
+&kp LSHFT  &kp Z  &kp X  &kp C         &kp V      &kp B           &td_navigation_layer  &td_numbers_layer     &trans                &kp LC(A)   &kp N      &kp M                   &kp COMMA  &kp DOT  &trans         &trans
+                         &kp LEFT_ALT  &kp LCTRL  &td_code_layer  &kp LEFT_SHIFT        &td_cmd_cmdbackthick  &td_cmd_cmdbackthick  &kp RETURN  &kp SPACE  &kp LA(LC(LEFT_SHIFT))  &trans
             >;
         };
 
