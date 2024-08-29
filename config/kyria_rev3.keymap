@@ -87,10 +87,10 @@
             //                       |      |      |      |      |      |      |      |      |      |      |      |      |
 
             bindings = <
-&kp EXCLAMATION  &kp AT_SIGN  &kp HASH       &kp DOLLAR            &kp PERCENT        &kp CARET                                             &kp AMPERSAND      &kp MINUS        &kp UNDERSCORE         &kp ASTERISK      &kp PLUS       &trans
-&trans           &kp SLASH    &kp LESS_THAN  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE     &kp LEFT_BRACKET                                      &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp GREATER_THAN  &kp BACKSLASH  &trans
-&to 0            &kp TILDE    &kp GRAVE      &kp SINGLE_QUOTE      &kp DOUBLE_QUOTES  &kp EQUAL         &trans  &trans  &trans  &kp LC(A)   &kp COLON          &kp SEMICOLON    &trans                 &kp QUESTION      &kp PIPE       &trans
-                                             &trans                &trans             &trans            &trans  &trans  &trans  &kp RETURN  &kp SPACE          &trans           &trans
+&kp EXCLAMATION  &kp AT_SIGN  &kp HASH       &kp DOLLAR            &kp PERCENT        &kp CARET                                            &kp AMPERSAND      &kp MINUS        &kp UNDERSCORE         &kp ASTERISK      &kp PLUS       &trans
+&trans           &kp SLASH    &kp LESS_THAN  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE     &kp LEFT_BRACKET                                     &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp GREATER_THAN  &kp BACKSLASH  &trans
+&to 0            &kp TILDE    &kp GRAVE      &kp SINGLE_QUOTE      &kp DOUBLE_QUOTES  &kp EQUAL         &trans  &trans  &kp F6  &kp LC(A)  &kp COLON          &kp SEMICOLON    &trans                 &kp QUESTION      &kp PIPE       &trans
+                                             &trans                &trans             &trans            &trans  &trans  &kp F5  &kp F1     &kp F2             &kp F3           &kp F4
             >;
         };
 
